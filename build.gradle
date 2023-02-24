@@ -11,15 +11,24 @@ repositories {
 jar{
     from('.') {
           include '*.tmx'
-          include 'textures'
-          include 'tiles'
+          include 'textures/'
+          include 'tiles/'
     }
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
-		from components.java
+            groupId = 'net.artux'
+            artifactId = 'pda-maps'
+            version = "0.1"
+
+		    from components.java
+
+		    pom {
+                description = 'Tiled maps for PDA'
+
+            }
         }
     }
 }
